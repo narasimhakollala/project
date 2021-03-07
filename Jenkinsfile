@@ -9,7 +9,7 @@ pipeline{
 		mvn package
 	  }
 	}
-	stage('Build'){
+	stage('docker image build')
 	  steps{
 	    docker build . -t narasimha/project:$(build_version)
 	  }
