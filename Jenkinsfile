@@ -8,7 +8,7 @@ pipeline{
             sh 'mvn package'
           }
         }
-        stage('Build'){
+        stage('Docker image Build'){
           steps{
             sh 'docker build . -t narasimha/project:1.0.1'
           }
