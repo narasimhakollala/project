@@ -16,13 +16,13 @@ pipeline{
         }
         stage('Docker image Build'){
           steps{
-            sh 'docker build . -t narasimha/project:1.0.1'
+            sh 'sudo docker build . -t narasimha/project:1.0.1'
 			sh 'echo docker image build completed'
           }
         }
         stage('Run docker'){
           steps{
-            sh 'docker run -it --rm --name webcal_1.0.1 -p 9090:8080 narasimha/project:1.0.1'
+            sh 'sudo docker run -it --rm --name webcal_1.0.1 -p 9090:8080 narasimha/project:1.0.1'
 			sh 'docker container launched'
           }
         }
