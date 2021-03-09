@@ -3,11 +3,11 @@ pipeline{
   stages {
         stage('SCM'){
           steps{
-	   git https://github.com/narasimhakollala/project.git
+	   git 'https://github.com/narasimhakollala/project.git'
 	   sh 'echo git pull completed'
           }
         }
-		stage('Build'){
+	stage('Build'){
           steps{
             sh 'mvn compile'
             sh 'mvn package'
