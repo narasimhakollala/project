@@ -1,4 +1,3 @@
-def build_version = awk -F "[><]" '/modelVersion/ {print $3}' pom.xml
 pipeline{
   agent any
   stages {
@@ -16,7 +15,7 @@ pipeline{
 	}
 	stage('Run docker'){
 	  steps{
-	    docker run -it --rm --name webcal_$(build_version) -p 9090:8080 narasimha/project:$(build_version)
+	    docker run -it --rm --name webcal_$(build_version) -p 9090:8080 narasimha/project:1.0.1
 	  }
 	}
   
