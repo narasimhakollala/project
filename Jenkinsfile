@@ -22,8 +22,8 @@ pipeline{
         }
         stage('Run docker'){
           steps{
-            sh 'sudo docker run -it --rm --name webcal_1.0.1 -p 9090:8080 narasimha/project:1.0.1'
-			sh 'docker container launched'
+            sh 'sudo docker run -dt --rm --name webcal_1.0.1 -p 9090:8080 narasimha/project:1.0.1'
+	    sh 'echo docker container launched'
           }
         }
   }
