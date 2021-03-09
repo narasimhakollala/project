@@ -2,22 +2,22 @@ pipeline{
   agent any
   stages {
     stage('Build'){
-	  steps{
-	    cd /home/centos/project
-		mvn compile
-		mvn package
-	  }
-	}
-	stage('Build'){
-	  steps{
-	    docker build . -t narasimha/project:1.0.1
-	  }
-	}
-	stage('Run docker'){
-	  steps{
-	    docker run -it --rm --name webcal_$(build_version) -p 9090:8080 narasimha/project:1.0.1
-	  }
-	}
-  
+          steps{
+            sh 'cd /home/centos/project'
+            sh 'mvn compile'
+            sh 'mvn package'
+          }
+        }
+        stage('Build'){
+          steps{
+            sh 'docker build . -t narasimha/project:1.0.1'
+          }
+        }
+        stage('Run docker'){
+          steps{
+            sh 'docker run -it --rm --name webcal_1.0.1 -p 9090:8080 narasimha/project:1.0.1'
+          }
+        }
   }
 }
+
